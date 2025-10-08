@@ -1,0 +1,38 @@
+default_agent: agentcore_runtime
+agents:
+  agentcore_runtime:
+    name: agentcore_runtime
+    entrypoint: app/agentcore_runtime.py
+    platform: linux/arm64
+    container_runtime: none
+    aws:
+      execution_role: arn:aws:iam::741448932792:role/AmazonBedrockAgentCoreSDKRuntime-us-west-2-58a640a493
+      execution_role_auto_create: false
+      account: '741448932792'
+      region: us-west-2
+      ecr_repository: 741448932792.dkr.ecr.us-west-2.amazonaws.com/bedrock-agentcore-agentcore_runtime
+      ecr_auto_create: false
+      network_configuration:
+        network_mode: PUBLIC
+      protocol_configuration:
+        server_protocol: HTTP
+      observability:
+        enabled: true
+    bedrock_agentcore:
+      agent_id: agentcore_runtime-07E0GPD0Jj
+      agent_arn: arn:aws:bedrock-agentcore:us-west-2:741448932792:runtime/agentcore_runtime-07E0GPD0Jj
+      agent_session_id: d45efae6-30b2-40c6-b8ab-ffa0b3afda17
+    codebuild:
+      project_name: bedrock-agentcore-agentcore_runtime-builder
+      execution_role: arn:aws:iam::741448932792:role/AmazonBedrockAgentCoreSDKCodeBuild-us-west-2-58a640a493
+      source_bucket: bedrock-agentcore-codebuild-sources-741448932792-us-west-2
+    memory:
+      mode: STM_AND_LTM
+      memory_id: agentcore_runtime_mem-RDrZvH5zXB
+      memory_arn: arn:aws:bedrock-agentcore:us-west-2:741448932792:memory/agentcore_runtime_mem-RDrZvH5zXB
+      memory_name: agentcore_runtime_mem
+      event_expiry_days: 30
+      first_invoke_memory_check_done: true
+    authorizer_configuration: null
+    request_header_configuration: null
+    oauth_configuration: null
