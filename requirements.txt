@@ -1,5 +1,15 @@
-boto3==1.34.162
-fastapi==0.110.0
-uvicorn[standard]==0.30.0
-pydantic==2.7.4
-strands-agents>=1.0.0
+bedrock-agentcore-starter-toolkit==0.1.19
+strands-agents==1.10.0
+
+# AWS SDK (AgentCore needs >= 1.40.x)
+boto3>=1.40.35
+
+# Web server/runtime
+uvicorn[standard]>=0.34.2
+pydantic>=2.7.4
+fastapi>=0.115.6
+
+# RAG deps
+opensearch-py==2.6.0
+requests>=2.31.0
+certifi>=2024.7.4
